@@ -1,5 +1,5 @@
 language: generic
-services: docker
+services: sudo docker
 script:
  - touch .gitignore
  - >
