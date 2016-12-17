@@ -1,0 +1,508 @@
+diff --git a/README.md b/README.md
+index 9ee848d..49e4c17 100644
+--- a/README.md
++++ b/README.md
+@@ -1,36 +1,36 @@
+-Java8InAction
+-===============
++# Java8InAction
+ 
+ This repository contains all the source code for the examples and quizzes in the book Java 8 in Action: Lambdas, Streams and functional-style programming.
+ 
+-You can purchase the book here: [http://manning.com/urma/](http://manning.com/urma/) or on Amazon
++You can purchase the book here: <http://manning.com/urma/> or on Amazon
+ 
+ The source code for all examples can be found in the directory [src/main/java/lambdasinaction](https://github.com/java8/Java8InAction/tree/master/src/main/java/lambdasinaction)
+ 
+-* Chapter 1: Java 8: why should you care?
+-* Chapter 2: Passing code with behavior parameterization
+-* Chapter 3: Lambda expressions
+-* Chapter 4: Working with Streams
+-* Chapter 5: Processing data with streams
+-* Chapter 6: Collecting data with streams
+-* Chapter 7: Parallel data processing and performance
+-* Chapter 8: Refactoring, testing, debugging
+-* Chapter 9: Default methods
+-* Chapter 10: Using Optional as a better alternative to null
+-* Chapter 11: CompletableFuture: composable asynchronous programming
+-* Chapter 12: New Date and Time API
+-* Chapter 13: Thinking functionally
+-* Chapter 14: Functional programming techniques
+-* Chapter 15: Blending OOP and FP: comparing Java 8 and Scala
+-* Chapter 16: Conclusions and "where next" for Java
+-* Appendix A: Miscellaneous language updates
+-* Appendix B: Miscellaneous library updates
+-* Appendix C: Performing multiple operations in parallel on a Stream
+-* Appendix D: Lambdas and JVM bytecode
+-We will update the repository as we update the book. Stay tuned!
++- Chapter 1: Java 8: why should you care?
++- Chapter 2: Passing code with behavior parameterization
++- Chapter 3: Lambda expressions
++- Chapter 4: Working with Streams
++- Chapter 5: Processing data with streams
++- Chapter 6: Collecting data with streams
++- Chapter 7: Parallel data processing and performance
++- Chapter 8: Refactoring, testing, debugging
++- Chapter 9: Default methods
++- Chapter 10: Using Optional as a better alternative to null
++- Chapter 11: CompletableFuture: composable asynchronous programming
++- Chapter 12: New Date and Time API
++- Chapter 13: Thinking functionally
++- Chapter 14: Functional programming techniques
++- Chapter 15: Blending OOP and FP: comparing Java 8 and Scala
++- Chapter 16: Conclusions and "where next" for Java
++- Appendix A: Miscellaneous language updates
++- Appendix B: Miscellaneous library updates
++- Appendix C: Performing multiple operations in parallel on a Stream
++- Appendix D: Lambdas and JVM bytecode
++  We will update the repository as we update the book. Stay tuned!
+ 
+ ### Make sure to have JDK8 installed
+-The latest binary can be found here: http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html
++
++The latest binary can be found here: <http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html>
+ 
+ $ java -version
+ 
+@@ -38,10 +38,10 @@ java version "1.8.0_05"
+ Java(TM) SE Runtime Environment (build 1.8.0_05-b13)
+ Java HotSpot(TM) 64-Bit Server VM (build 25.5-b02, mixed mode)
+ 
+-
+-You can download a preview version here: https://jdk8.java.net/
++You can download a preview version here: <https://jdk8.java.net/>
+ 
+ ### Compile/Run the examples
++
+ Using maven:
+ 
+ $ mvn compile
+@@ -50,10 +50,9 @@ $ cd target/classes
+ 
+ $ java lambdasinaction/chap1/FilteringApples
+ 
+-
+ Alternatively you can compile the files manually inside the directory src/main/java
+ 
+ You can also import the project in your favorite IDE:
+     * In IntelliJ use "File->Open" menu and navigate to the folder where the project resides
+     * In Eclipse use "File->Import->Existing Maven Projects" (also modify "Reduntant super interfaces" to report as Warnings instead of Errors
+-    * In Netbeans use "File->Open Project" menu
+\ No newline at end of file
++    \* In Netbeans use "File->Open Project" menu
+diff --git a/pom.xml b/pom.xml
+index 32ca0b3..2848b55 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -1,7 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+ 
+     <groupId>manning</groupId>
+@@ -34,4 +32,4 @@
+     </plugins>
+   </build>
+ 
+-</project>
+\ No newline at end of file
++</project>
+diff --git a/src/main/java/lambdasinaction/appa/Author.java b/src/main/java/lambdasinaction/appa/author.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/appa/Author.java
+rename to src/main/java/lambdasinaction/appa/author.java
+diff --git a/src/main/java/lambdasinaction/appa/Authors.java b/src/main/java/lambdasinaction/appa/authors.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/appa/Authors.java
+rename to src/main/java/lambdasinaction/appa/authors.java
+diff --git a/src/main/java/lambdasinaction/appa/Book.java b/src/main/java/lambdasinaction/appa/book.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/appa/Book.java
+rename to src/main/java/lambdasinaction/appa/book.java
+diff --git a/src/main/java/lambdasinaction/appc/StreamForker.java b/src/main/java/lambdasinaction/appc/stream_forker.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/appc/StreamForker.java
+rename to src/main/java/lambdasinaction/appc/stream_forker.java
+diff --git a/src/main/java/lambdasinaction/appc/StreamForkerExample.java b/src/main/java/lambdasinaction/appc/stream_forker_example.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/appc/StreamForkerExample.java
+rename to src/main/java/lambdasinaction/appc/stream_forker_example.java
+diff --git a/src/main/java/lambdasinaction/appd/InnerClass.java b/src/main/java/lambdasinaction/appd/inner_class.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/appd/InnerClass.java
+rename to src/main/java/lambdasinaction/appd/inner_class.java
+diff --git a/src/main/java/lambdasinaction/appd/Lambda.java b/src/main/java/lambdasinaction/appd/lambda.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/appd/Lambda.java
+rename to src/main/java/lambdasinaction/appd/lambda.java
+diff --git a/src/main/java/lambdasinaction/chap1/FilteringApples.java b/src/main/java/lambdasinaction/chap1/filtering_apples.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap1/FilteringApples.java
+rename to src/main/java/lambdasinaction/chap1/filtering_apples.java
+diff --git a/src/main/java/lambdasinaction/chap10/Car.java b/src/main/java/lambdasinaction/chap10/car.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap10/Car.java
+rename to src/main/java/lambdasinaction/chap10/car.java
+diff --git a/src/main/java/lambdasinaction/chap10/Insurance.java b/src/main/java/lambdasinaction/chap10/insurance.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap10/Insurance.java
+rename to src/main/java/lambdasinaction/chap10/insurance.java
+diff --git a/src/main/java/lambdasinaction/chap10/OperationsWithOptional.java b/src/main/java/lambdasinaction/chap10/operations_with_optional.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap10/OperationsWithOptional.java
+rename to src/main/java/lambdasinaction/chap10/operations_with_optional.java
+diff --git a/src/main/java/lambdasinaction/chap10/OptionalMain.java b/src/main/java/lambdasinaction/chap10/optional_main.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap10/OptionalMain.java
+rename to src/main/java/lambdasinaction/chap10/optional_main.java
+diff --git a/src/main/java/lambdasinaction/chap10/Person.java b/src/main/java/lambdasinaction/chap10/person.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap10/Person.java
+rename to src/main/java/lambdasinaction/chap10/person.java
+diff --git a/src/main/java/lambdasinaction/chap10/ReadPositiveIntParam.java b/src/main/java/lambdasinaction/chap10/read_positive_int_param.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap10/ReadPositiveIntParam.java
+rename to src/main/java/lambdasinaction/chap10/read_positive_int_param.java
+diff --git a/src/main/java/lambdasinaction/chap11/AsyncShop.java b/src/main/java/lambdasinaction/chap11/async_shop.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap11/AsyncShop.java
+rename to src/main/java/lambdasinaction/chap11/async_shop.java
+diff --git a/src/main/java/lambdasinaction/chap11/AsyncShopClient.java b/src/main/java/lambdasinaction/chap11/async_shop_client.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap11/AsyncShopClient.java
+rename to src/main/java/lambdasinaction/chap11/async_shop_client.java
+diff --git a/src/main/java/lambdasinaction/chap11/BestPriceFinder.java b/src/main/java/lambdasinaction/chap11/best_price_finder.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap11/BestPriceFinder.java
+rename to src/main/java/lambdasinaction/chap11/best_price_finder.java
+diff --git a/src/main/java/lambdasinaction/chap11/BestPriceFinderMain.java b/src/main/java/lambdasinaction/chap11/best_price_finder_main.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap11/BestPriceFinderMain.java
+rename to src/main/java/lambdasinaction/chap11/best_price_finder_main.java
+diff --git a/src/main/java/lambdasinaction/chap11/Discount.java b/src/main/java/lambdasinaction/chap11/discount.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap11/Discount.java
+rename to src/main/java/lambdasinaction/chap11/discount.java
+diff --git a/src/main/java/lambdasinaction/chap11/ExchangeService.java b/src/main/java/lambdasinaction/chap11/exchange_service.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap11/ExchangeService.java
+rename to src/main/java/lambdasinaction/chap11/exchange_service.java
+diff --git a/src/main/java/lambdasinaction/chap11/Quote.java b/src/main/java/lambdasinaction/chap11/quote.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap11/Quote.java
+rename to src/main/java/lambdasinaction/chap11/quote.java
+diff --git a/src/main/java/lambdasinaction/chap11/Shop.java b/src/main/java/lambdasinaction/chap11/shop.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap11/Shop.java
+rename to src/main/java/lambdasinaction/chap11/shop.java
+diff --git a/src/main/java/lambdasinaction/chap11/Util.java b/src/main/java/lambdasinaction/chap11/util.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap11/Util.java
+rename to src/main/java/lambdasinaction/chap11/util.java
+diff --git a/src/main/java/lambdasinaction/chap11/v1/BestPriceFinder.java b/src/main/java/lambdasinaction/chap11/v1/best_price_finder.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap11/v1/BestPriceFinder.java
+rename to src/main/java/lambdasinaction/chap11/v1/best_price_finder.java
+diff --git a/src/main/java/lambdasinaction/chap11/v1/BestPriceFinderMain.java b/src/main/java/lambdasinaction/chap11/v1/best_price_finder_main.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap11/v1/BestPriceFinderMain.java
+rename to src/main/java/lambdasinaction/chap11/v1/best_price_finder_main.java
+diff --git a/src/main/java/lambdasinaction/chap11/v1/Shop.java b/src/main/java/lambdasinaction/chap11/v1/shop.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap11/v1/Shop.java
+rename to src/main/java/lambdasinaction/chap11/v1/shop.java
+diff --git a/src/main/java/lambdasinaction/chap11/v1/ShopMain.java b/src/main/java/lambdasinaction/chap11/v1/shop_main.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap11/v1/ShopMain.java
+rename to src/main/java/lambdasinaction/chap11/v1/shop_main.java
+diff --git a/src/main/java/lambdasinaction/chap12/DateTimeExamples.java b/src/main/java/lambdasinaction/chap12/date_time_examples.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap12/DateTimeExamples.java
+rename to src/main/java/lambdasinaction/chap12/date_time_examples.java
+diff --git a/src/main/java/lambdasinaction/chap13/Recursion.java b/src/main/java/lambdasinaction/chap13/recursion.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap13/Recursion.java
+rename to src/main/java/lambdasinaction/chap13/recursion.java
+diff --git a/src/main/java/lambdasinaction/chap13/SubsetsMain.java b/src/main/java/lambdasinaction/chap13/subsets_main.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap13/SubsetsMain.java
+rename to src/main/java/lambdasinaction/chap13/subsets_main.java
+diff --git a/src/main/java/lambdasinaction/chap14/Combinators.java b/src/main/java/lambdasinaction/chap14/combinators.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap14/Combinators.java
+rename to src/main/java/lambdasinaction/chap14/combinators.java
+diff --git a/src/main/java/lambdasinaction/chap14/Currying.java b/src/main/java/lambdasinaction/chap14/currying.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap14/Currying.java
+rename to src/main/java/lambdasinaction/chap14/currying.java
+diff --git a/src/main/java/lambdasinaction/chap14/LazyLists.java b/src/main/java/lambdasinaction/chap14/lazy_lists.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap14/LazyLists.java
+rename to src/main/java/lambdasinaction/chap14/lazy_lists.java
+diff --git a/src/main/java/lambdasinaction/chap14/PatternMatching.java b/src/main/java/lambdasinaction/chap14/pattern_matching.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap14/PatternMatching.java
+rename to src/main/java/lambdasinaction/chap14/pattern_matching.java
+diff --git a/src/main/java/lambdasinaction/chap14/PersistentTrainJourney.java b/src/main/java/lambdasinaction/chap14/persistent_train_journey.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap14/PersistentTrainJourney.java
+rename to src/main/java/lambdasinaction/chap14/persistent_train_journey.java
+diff --git a/src/main/java/lambdasinaction/chap14/PersistentTree.java b/src/main/java/lambdasinaction/chap14/persistent_tree.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap14/PersistentTree.java
+rename to src/main/java/lambdasinaction/chap14/persistent_tree.java
+diff --git a/src/main/java/lambdasinaction/chap2/FilteringApples.java b/src/main/java/lambdasinaction/chap2/filtering_apples.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap2/FilteringApples.java
+rename to src/main/java/lambdasinaction/chap2/filtering_apples.java
+diff --git a/src/main/java/lambdasinaction/chap2/MeaningOfThis.java b/src/main/java/lambdasinaction/chap2/meaning_of_this.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap2/MeaningOfThis.java
+rename to src/main/java/lambdasinaction/chap2/meaning_of_this.java
+diff --git a/src/main/java/lambdasinaction/chap3/ExecuteAround.java b/src/main/java/lambdasinaction/chap3/execute_around.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap3/ExecuteAround.java
+rename to src/main/java/lambdasinaction/chap3/execute_around.java
+diff --git a/src/main/java/lambdasinaction/chap3/Lambdas.java b/src/main/java/lambdasinaction/chap3/lambdas.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap3/Lambdas.java
+rename to src/main/java/lambdasinaction/chap3/lambdas.java
+diff --git a/src/main/java/lambdasinaction/chap3/Sorting.java b/src/main/java/lambdasinaction/chap3/sorting.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap3/Sorting.java
+rename to src/main/java/lambdasinaction/chap3/sorting.java
+diff --git a/src/main/java/lambdasinaction/chap4/Dish.java b/src/main/java/lambdasinaction/chap4/dish.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap4/Dish.java
+rename to src/main/java/lambdasinaction/chap4/dish.java
+diff --git a/src/main/java/lambdasinaction/chap4/StreamBasic.java b/src/main/java/lambdasinaction/chap4/stream_basic.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap4/StreamBasic.java
+rename to src/main/java/lambdasinaction/chap4/stream_basic.java
+diff --git a/src/main/java/lambdasinaction/chap4/StreamVsCollection.java b/src/main/java/lambdasinaction/chap4/stream_vs_collection.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap4/StreamVsCollection.java
+rename to src/main/java/lambdasinaction/chap4/stream_vs_collection.java
+diff --git a/src/main/java/lambdasinaction/chap5/BuildingStreams.java b/src/main/java/lambdasinaction/chap5/building_streams.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap5/BuildingStreams.java
+rename to src/main/java/lambdasinaction/chap5/building_streams.java
+diff --git a/src/main/java/lambdasinaction/chap5/Filtering.java b/src/main/java/lambdasinaction/chap5/filtering.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap5/Filtering.java
+rename to src/main/java/lambdasinaction/chap5/filtering.java
+diff --git a/src/main/java/lambdasinaction/chap5/Finding.java b/src/main/java/lambdasinaction/chap5/finding.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap5/Finding.java
+rename to src/main/java/lambdasinaction/chap5/finding.java
+diff --git a/src/main/java/lambdasinaction/chap5/Laziness.java b/src/main/java/lambdasinaction/chap5/laziness.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap5/Laziness.java
+rename to src/main/java/lambdasinaction/chap5/laziness.java
+diff --git a/src/main/java/lambdasinaction/chap5/Mapping.java b/src/main/java/lambdasinaction/chap5/mapping.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap5/Mapping.java
+rename to src/main/java/lambdasinaction/chap5/mapping.java
+diff --git a/src/main/java/lambdasinaction/chap5/NumericStreams.java b/src/main/java/lambdasinaction/chap5/numeric_streams.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap5/NumericStreams.java
+rename to src/main/java/lambdasinaction/chap5/numeric_streams.java
+diff --git a/src/main/java/lambdasinaction/chap5/PuttingIntoPractice.java b/src/main/java/lambdasinaction/chap5/putting_into_practice.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap5/PuttingIntoPractice.java
+rename to src/main/java/lambdasinaction/chap5/putting_into_practice.java
+diff --git a/src/main/java/lambdasinaction/chap5/Reducing.java b/src/main/java/lambdasinaction/chap5/reducing.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap5/Reducing.java
+rename to src/main/java/lambdasinaction/chap5/reducing.java
+diff --git a/src/main/java/lambdasinaction/chap5/Trader.java b/src/main/java/lambdasinaction/chap5/trader.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap5/Trader.java
+rename to src/main/java/lambdasinaction/chap5/trader.java
+diff --git a/src/main/java/lambdasinaction/chap5/Transaction.java b/src/main/java/lambdasinaction/chap5/transaction.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap5/Transaction.java
+rename to src/main/java/lambdasinaction/chap5/transaction.java
+diff --git a/src/main/java/lambdasinaction/chap6/CollectorHarness.java b/src/main/java/lambdasinaction/chap6/collector_harness.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap6/CollectorHarness.java
+rename to src/main/java/lambdasinaction/chap6/collector_harness.java
+diff --git a/src/main/java/lambdasinaction/chap6/Dish.java b/src/main/java/lambdasinaction/chap6/dish.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap6/Dish.java
+rename to src/main/java/lambdasinaction/chap6/dish.java
+diff --git a/src/main/java/lambdasinaction/chap6/Grouping.java b/src/main/java/lambdasinaction/chap6/grouping.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap6/Grouping.java
+rename to src/main/java/lambdasinaction/chap6/grouping.java
+diff --git a/src/main/java/lambdasinaction/chap6/GroupingTransactions.java b/src/main/java/lambdasinaction/chap6/grouping_transactions.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap6/GroupingTransactions.java
+rename to src/main/java/lambdasinaction/chap6/grouping_transactions.java
+diff --git a/src/main/java/lambdasinaction/chap6/PartitionPrimeNumbers.java b/src/main/java/lambdasinaction/chap6/partition_prime_numbers.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap6/PartitionPrimeNumbers.java
+rename to src/main/java/lambdasinaction/chap6/partition_prime_numbers.java
+diff --git a/src/main/java/lambdasinaction/chap6/Partitioning.java b/src/main/java/lambdasinaction/chap6/partitioning.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap6/Partitioning.java
+rename to src/main/java/lambdasinaction/chap6/partitioning.java
+diff --git a/src/main/java/lambdasinaction/chap6/Reducing.java b/src/main/java/lambdasinaction/chap6/reducing.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap6/Reducing.java
+rename to src/main/java/lambdasinaction/chap6/reducing.java
+diff --git a/src/main/java/lambdasinaction/chap6/Summarizing.java b/src/main/java/lambdasinaction/chap6/summarizing.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap6/Summarizing.java
+rename to src/main/java/lambdasinaction/chap6/summarizing.java
+diff --git a/src/main/java/lambdasinaction/chap6/ToListCollector.java b/src/main/java/lambdasinaction/chap6/to_list_collector.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap6/ToListCollector.java
+rename to src/main/java/lambdasinaction/chap6/to_list_collector.java
+diff --git a/src/main/java/lambdasinaction/chap7/ForkJoinSumCalculator.java b/src/main/java/lambdasinaction/chap7/fork_join_sum_calculator.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap7/ForkJoinSumCalculator.java
+rename to src/main/java/lambdasinaction/chap7/fork_join_sum_calculator.java
+diff --git a/src/main/java/lambdasinaction/chap7/ParallelStreams.java b/src/main/java/lambdasinaction/chap7/parallel_streams.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap7/ParallelStreams.java
+rename to src/main/java/lambdasinaction/chap7/parallel_streams.java
+diff --git a/src/main/java/lambdasinaction/chap7/ParallelStreamsHarness.java b/src/main/java/lambdasinaction/chap7/parallel_streams_harness.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap7/ParallelStreamsHarness.java
+rename to src/main/java/lambdasinaction/chap7/parallel_streams_harness.java
+diff --git a/src/main/java/lambdasinaction/chap7/WordCount.java b/src/main/java/lambdasinaction/chap7/word_count.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap7/WordCount.java
+rename to src/main/java/lambdasinaction/chap7/word_count.java
+diff --git a/src/main/java/lambdasinaction/chap8/ChainOfResponsibilityMain.java b/src/main/java/lambdasinaction/chap8/chain_of_responsibility_main.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap8/ChainOfResponsibilityMain.java
+rename to src/main/java/lambdasinaction/chap8/chain_of_responsibility_main.java
+diff --git a/src/main/java/lambdasinaction/chap8/Debugging.java b/src/main/java/lambdasinaction/chap8/debugging.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap8/Debugging.java
+rename to src/main/java/lambdasinaction/chap8/debugging.java
+diff --git a/src/main/java/lambdasinaction/chap8/FactoryMain.java b/src/main/java/lambdasinaction/chap8/factory_main.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap8/FactoryMain.java
+rename to src/main/java/lambdasinaction/chap8/factory_main.java
+diff --git a/src/main/java/lambdasinaction/chap8/ObserverMain.java b/src/main/java/lambdasinaction/chap8/observer_main.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap8/ObserverMain.java
+rename to src/main/java/lambdasinaction/chap8/observer_main.java
+diff --git a/src/main/java/lambdasinaction/chap8/OnlineBanking.java b/src/main/java/lambdasinaction/chap8/online_banking.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap8/OnlineBanking.java
+rename to src/main/java/lambdasinaction/chap8/online_banking.java
+diff --git a/src/main/java/lambdasinaction/chap8/OnlineBankingLambda.java b/src/main/java/lambdasinaction/chap8/online_banking_lambda.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap8/OnlineBankingLambda.java
+rename to src/main/java/lambdasinaction/chap8/online_banking_lambda.java
+diff --git a/src/main/java/lambdasinaction/chap8/Peek.java b/src/main/java/lambdasinaction/chap8/peek.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap8/Peek.java
+rename to src/main/java/lambdasinaction/chap8/peek.java
+diff --git a/src/main/java/lambdasinaction/chap8/StrategyMain.java b/src/main/java/lambdasinaction/chap8/strategy_main.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap8/StrategyMain.java
+rename to src/main/java/lambdasinaction/chap8/strategy_main.java
+diff --git a/src/main/java/lambdasinaction/chap9/Ambiguous.java b/src/main/java/lambdasinaction/chap9/ambiguous.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap9/Ambiguous.java
+rename to src/main/java/lambdasinaction/chap9/ambiguous.java
+diff --git a/src/main/java/lambdasinaction/chap9/Diamond.java b/src/main/java/lambdasinaction/chap9/diamond.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap9/Diamond.java
+rename to src/main/java/lambdasinaction/chap9/diamond.java
+diff --git a/src/main/java/lambdasinaction/chap9/Drawable.java b/src/main/java/lambdasinaction/chap9/drawable.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap9/Drawable.java
+rename to src/main/java/lambdasinaction/chap9/drawable.java
+diff --git a/src/main/java/lambdasinaction/chap9/Ellipse.java b/src/main/java/lambdasinaction/chap9/ellipse.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap9/Ellipse.java
+rename to src/main/java/lambdasinaction/chap9/ellipse.java
+diff --git a/src/main/java/lambdasinaction/chap9/Game.java b/src/main/java/lambdasinaction/chap9/game.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap9/Game.java
+rename to src/main/java/lambdasinaction/chap9/game.java
+diff --git a/src/main/java/lambdasinaction/chap9/Intro.java b/src/main/java/lambdasinaction/chap9/intro.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap9/Intro.java
+rename to src/main/java/lambdasinaction/chap9/intro.java
+diff --git a/src/main/java/lambdasinaction/chap9/Letter.java b/src/main/java/lambdasinaction/chap9/letter.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap9/Letter.java
+rename to src/main/java/lambdasinaction/chap9/letter.java
+diff --git a/src/main/java/lambdasinaction/chap9/MostSpecific.java b/src/main/java/lambdasinaction/chap9/most_specific.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap9/MostSpecific.java
+rename to src/main/java/lambdasinaction/chap9/most_specific.java
+diff --git a/src/main/java/lambdasinaction/chap9/Resizable.java b/src/main/java/lambdasinaction/chap9/resizable.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap9/Resizable.java
+rename to src/main/java/lambdasinaction/chap9/resizable.java
+diff --git a/src/main/java/lambdasinaction/chap9/Square.java b/src/main/java/lambdasinaction/chap9/square.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap9/Square.java
+rename to src/main/java/lambdasinaction/chap9/square.java
+diff --git a/src/main/java/lambdasinaction/chap9/Triangle.java b/src/main/java/lambdasinaction/chap9/triangle.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap9/Triangle.java
+rename to src/main/java/lambdasinaction/chap9/triangle.java
+diff --git a/src/main/java/lambdasinaction/chap9/Utils.java b/src/main/java/lambdasinaction/chap9/utils.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/chap9/Utils.java
+rename to src/main/java/lambdasinaction/chap9/utils.java
+diff --git a/src/main/java/lambdasinaction/dsl/Grouping.java b/src/main/java/lambdasinaction/dsl/grouping.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/dsl/Grouping.java
+rename to src/main/java/lambdasinaction/dsl/grouping.java
+diff --git a/src/main/java/lambdasinaction/dsl/LambdaOrderBuilder.java b/src/main/java/lambdasinaction/dsl/lambda_order_builder.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/dsl/LambdaOrderBuilder.java
+rename to src/main/java/lambdasinaction/dsl/lambda_order_builder.java
+diff --git a/src/main/java/lambdasinaction/dsl/Main.java b/src/main/java/lambdasinaction/dsl/main.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/dsl/Main.java
+rename to src/main/java/lambdasinaction/dsl/main.java
+diff --git a/src/main/java/lambdasinaction/dsl/MethodChainingOrderBuilder.java b/src/main/java/lambdasinaction/dsl/method_chaining_order_builder.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/dsl/MethodChainingOrderBuilder.java
+rename to src/main/java/lambdasinaction/dsl/method_chaining_order_builder.java
+diff --git a/src/main/java/lambdasinaction/dsl/Mixed.java b/src/main/java/lambdasinaction/dsl/mixed.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/dsl/Mixed.java
+rename to src/main/java/lambdasinaction/dsl/mixed.java
+diff --git a/src/main/java/lambdasinaction/dsl/MixedBuilder.java b/src/main/java/lambdasinaction/dsl/mixed_builder.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/dsl/MixedBuilder.java
+rename to src/main/java/lambdasinaction/dsl/mixed_builder.java
+diff --git a/src/main/java/lambdasinaction/dsl/model/Order.java b/src/main/java/lambdasinaction/dsl/model/order.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/dsl/model/Order.java
+rename to src/main/java/lambdasinaction/dsl/model/order.java
+diff --git a/src/main/java/lambdasinaction/dsl/model/Stock.java b/src/main/java/lambdasinaction/dsl/model/stock.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/dsl/model/Stock.java
+rename to src/main/java/lambdasinaction/dsl/model/stock.java
+diff --git a/src/main/java/lambdasinaction/dsl/model/Tax.java b/src/main/java/lambdasinaction/dsl/model/tax.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/dsl/model/Tax.java
+rename to src/main/java/lambdasinaction/dsl/model/tax.java
+diff --git a/src/main/java/lambdasinaction/dsl/model/Trade.java b/src/main/java/lambdasinaction/dsl/model/trade.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/dsl/model/Trade.java
+rename to src/main/java/lambdasinaction/dsl/model/trade.java
+diff --git a/src/main/java/lambdasinaction/dsl/NestedFunctionOrderBuilder.java b/src/main/java/lambdasinaction/dsl/nested_function_order_builder.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/dsl/NestedFunctionOrderBuilder.java
+rename to src/main/java/lambdasinaction/dsl/nested_function_order_builder.java
+diff --git a/src/main/java/lambdasinaction/dsl/TaxCalculator.java b/src/main/java/lambdasinaction/dsl/tax_calculator.java
+similarity index 100%
+rename from src/main/java/lambdasinaction/dsl/TaxCalculator.java
+rename to src/main/java/lambdasinaction/dsl/tax_calculator.java
